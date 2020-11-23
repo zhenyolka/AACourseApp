@@ -10,23 +10,26 @@
         android:layout_height="wrap_content"
         tools:context=".MovieDetailsActivity">
 
-        <FrameLayout
+        <ImageView
             android:id="@+id/movieBanner"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:foreground="@drawable/ic_banner_gradient"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_banner_avengers"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"/>
 
-            <ImageView
-                android:id="@+id/movieBannerImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/ic_banner_avengers" />
-
-        </FrameLayout>
+        <ImageView
+            android:id="@+id/movieBannerGradient"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/movieBanner"
+            app:layout_constraintEnd_toEndOf="@id/movieBanner"
+            app:layout_constraintStart_toStartOf="@id/movieBanner"
+            app:srcCompat="@drawable/ic_banner_gradient" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/backButton"

@@ -1,3 +1,22 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="movie_name_text_size">40sp</dimen>
+    <dimen name="movie_name_text_line_spacing_extra">0sp</dimen>
+    <dimen name="back_button_text_size">12sp</dimen>
+    <dimen name="back_button_text_line_spacing_extra">4sp</dimen>
+    <dimen name="pg_text_size">12sp</dimen>
+    <dimen name="pg_text_line_spacing_extra">2.06sp</dimen>
+    <dimen name="tags_text_size">14sp</dimen>
+    <dimen name="tags_text_line_spacing_extra">6sp</dimen>
+    <dimen name="reviews_text_size">14sp</dimen>
+    <dimen name="reviews_text_line_spacing_extra">6sp</dimen>
+    <dimen name="storyline_name_text_size">14sp</dimen>
+    <dimen name="storyline_name_text_line_spacing_extra">6sp</dimen>
+    <dimen name="storyline_text_text_size">14sp</dimen>
+    <dimen name="storyline_text_text_line_spacing_extra">6sp</dimen>
+    <dimen name="cast_text_size">14sp</dimen>
+    <dimen name="cast_text_line_spacing_extra">8sp</dimen>
+    <dimen name="actor_text_size">12sp</dimen>
+    <dimen name="actor_text_line_spacing_extra">4sp</dimen>
+    <dimen name="movie_bar_height">12dp</dimen>
 </resources>

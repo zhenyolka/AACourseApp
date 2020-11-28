@@ -61,6 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:srcCompat="@drawable/ic_movie_gradient"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toStartOf="@id/movieImage"
                 app:layout_constraintTop_toTopOf="@id/movieImage"
                 app:layout_constraintEnd_toEndOf="@id/movieImage"

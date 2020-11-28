@@ -7,10 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="backgroundGray">#191926</color>
-    <color name="reviewsGray">#6D6D80</color>
-    <color name="partialWhite">#ECECEC</color>
-    <color name="tagsRed">#FF3466</color>
-    <color name="actorNameGray">#D8D8D8</color>
-    <color name="textShadowColor">#80000000</color>
+    <color name="background_gray">#191926</color>
+    <color name="reviews_gray">#6D6D80</color>
+    <color name="partial_white">#ECECEC</color>
+    <color name="tags_red">#FF3466</color>
+    <color name="actor_name_gray">#D8D8D8</color>
+    <color name="text_shadow_color">#80000000</color>
 </resources>

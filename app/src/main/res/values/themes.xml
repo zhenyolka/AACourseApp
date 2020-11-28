@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.AACourseApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/backgroundGray</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background_gray</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -26,9 +26,9 @@
 
         <item name="android:letterSpacing" tools:targetApi="lollipop">-0.01</item>
 
-        <item name="android:textColor">@color/partialWhite</item>
+        <item name="android:textColor">@color/partial_white</item>
 
-        <item name="android:shadowColor">@color/textShadowColor</item>
+        <item name="android:shadowColor">@color/text_shadow_color</item>
 
         <item name="android:shadowDx">0</item>
 
@@ -50,7 +50,7 @@
 
         <item name="android:alpha">0.5</item>
 
-        <item name="android:shadowColor">@color/textShadowColor</item>
+        <item name="android:shadowColor">@color/text_shadow_color</item>
     </style>
 
     <style name="Theme.AACourseApp.PGText">
@@ -74,7 +74,7 @@
 
         <item name="android:textAllCaps">false</item>
 
-        <item name="android:textColor">@color/tagsRed</item>
+        <item name="android:textColor">@color/tags_red</item>
     </style>
 
     <style name="Theme.AACourseApp.ReviewsText">
@@ -86,7 +86,7 @@
 
         <item name="android:textAllCaps">false</item>
 
-        <item name="android:textColor">@color/reviewsGray</item>
+        <item name="android:textColor">@color/reviews_gray</item>
     </style>
 
     <style name="Theme.AACourseApp.StorylineNameText">
@@ -98,9 +98,9 @@
 
         <item name="android:textAllCaps">false</item>
 
-        <item name="android:textColor">@color/partialWhite</item>
+        <item name="android:textColor">@color/partial_white</item>
 
-        <item name="android:shadowColor">@color/textShadowColor</item>
+        <item name="android:shadowColor">@color/text_shadow_color</item>
 
         <item name="android:shadowDx">0</item>
 
@@ -134,9 +134,9 @@
 
         <item name="android:letterSpacing" tools:targetApi="lollipop">-0.01</item>
 
-        <item name="android:textColor">@color/partialWhite</item>
+        <item name="android:textColor">@color/partial_white</item>
 
-        <item name="android:shadowColor">@color/textShadowColor</item>
+        <item name="android:shadowColor">@color/text_shadow_color</item>
 
         <item name="android:shadowDx">0</item>
 
@@ -154,7 +154,7 @@
 
         <item name="android:textAllCaps">false</item>
 
-        <item name="android:textColor">@color/actorNameGray</item>
+        <item name="android:textColor">@color/actor_name_gray</item>
     </style>
 
     <style name="Theme.AACourseApp.MovieRatingBar" parent="@android:style/Widget.RatingBar">

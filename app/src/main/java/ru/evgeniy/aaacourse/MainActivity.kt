@@ -3,10 +3,10 @@ package ru.evgeniy.aaacourse
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), FragmentMoviesList.FragmentMoviesListClickListener, BackButtonClickListener {
+class MainActivity : AppCompatActivity(), MoviesListFragment.MoviesListFragmentClickListener, BackButtonClickListener {
 
-    private var moviesListFragment: FragmentMoviesList? = null
-    private var moviesDetailsFragment: FragmentMoviesDetails? = null
+    private var moviesListFragment: MoviesListFragment? = null
+    private var moviesDetailsFragment: MoviesDetailsFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,19 +15,19 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.FragmentMoviesListC
         if(savedInstanceState == null) {
             supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.mainContainer, FragmentMoviesList(), MOVIES_LIST_FRAGMENT_TAG)
+                    .add(R.id.mainContainer, MoviesListFragment(), MOVIES_LIST_FRAGMENT_TAG)
                     .commit()
         } else {
             moviesListFragment = supportFragmentManager
-                    .findFragmentByTag(MOVIES_LIST_FRAGMENT_TAG) as? FragmentMoviesList
+                    .findFragmentByTag(MOVIES_LIST_FRAGMENT_TAG) as? MoviesListFragment
             moviesDetailsFragment = supportFragmentManager
-                    .findFragmentByTag(MOVIES_DETAILS_FRAGMENT_TAG) as? FragmentMoviesDetails
+                    .findFragmentByTag(MOVIES_DETAILS_FRAGMENT_TAG) as? MoviesDetailsFragment
         }
     }
 
     override fun onMovieCardClickListener() {
         if (moviesDetailsFragment == null)
-            moviesDetailsFragment = FragmentMoviesDetails()
+            moviesDetailsFragment = MoviesDetailsFragment()
         supportFragmentManager
                 .beginTransaction()
                 .addToBackStack(null)

@@ -17,61 +17,41 @@
 
     <style name="Theme.AACourseApp.MoviesListHeaderText">
         <item name="android:textSize">@dimen/movie_list_header_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/movie_list_header_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Theme.AACourseApp.ReviewsTextMain">
         <item name="android:textSize">@dimen/reviews_main_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/reviews_main_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/reviews_gray</item>
     </style>
 
     <style name="Theme.AACourseApp.TagsTextMain">
         <item name="android:textSize">@dimen/tags_main_text_size</item>
-
         <item name="android:fontFamily">sans-serif-light</item>
-
         <item name="android:lineSpacingExtra">@dimen/tags_main_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/tags_red</item>
     </style>
 
     <style name="Theme.AACourseApp.MovieMinutesText">
         <item name="android:textSize">@dimen/movie_minutes_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/movie_minutes_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">true</item>
-
         <item name="android:textColor">@color/minutes_gray</item>
     </style>
 
     <style name="Theme.AACourseApp.MovieNameTextMain">
         <item name="android:textSize">@dimen/movie_name_main_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/movie_name_main_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/partial_white</item>
     </style>
 
@@ -85,143 +65,90 @@
 
     <style name="Theme.AACourseApp.MovieNameText">
         <item name="android:textSize">@dimen/movie_name_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/movie_name_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:letterSpacing" tools:targetApi="lollipop">-0.01</item>
-
         <item name="android:textColor">@color/partial_white</item>
-
         <item name="android:shadowColor">@color/text_shadow_color</item>
-
         <item name="android:shadowDx">0</item>
-
         <item name="android:shadowDy">6</item>
-
         <item name="android:shadowRadius">12</item>
     </style>
 
     <style name="Theme.AACourseApp.BackButtonText">
         <item name="android:textSize">@dimen/back_button_text_size</item>
-
         <item name="android:fontFamily">sans-serif-light</item>
-
         <item name="android:lineSpacingExtra">@dimen/back_button_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/white</item>
-
         <item name="android:alpha">0.5</item>
-
         <item name="android:shadowColor">@color/text_shadow_color</item>
     </style>
 
     <style name="Theme.AACourseApp.PGText">
         <item name="android:textSize">@dimen/pg_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/pg_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Theme.AACourseApp.TagsText">
         <item name="android:textSize">@dimen/tags_text_size</item>
-
         <item name="android:fontFamily">sans-serif-light</item>
-
         <item name="android:lineSpacingExtra">@dimen/tags_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/tags_red</item>
     </style>
 
     <style name="Theme.AACourseApp.ReviewsText">
         <item name="android:textSize">@dimen/reviews_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/reviews_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/reviews_gray</item>
     </style>
 
     <style name="Theme.AACourseApp.StorylineNameText">
         <item name="android:textSize">@dimen/storyline_name_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/storyline_name_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/partial_white</item>
-
         <item name="android:shadowColor">@color/text_shadow_color</item>
-
         <item name="android:shadowDx">0</item>
-
         <item name="android:shadowDy">6</item>
-
         <item name="android:shadowRadius">12</item>
     </style>
 
     <style name="Theme.AACourseApp.StorylineTextText">
         <item name="android:textSize">@dimen/storyline_text_text_size</item>
-
         <item name="android:fontFamily">sans-serif-light</item>
-
         <item name="android:lineSpacingExtra">@dimen/storyline_text_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="alpha">0.75</item>
-
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Theme.AACourseApp.CastNameText">
         <item name="android:textSize">@dimen/cast_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">@dimen/cast_text_line_spacing_extra</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:letterSpacing" tools:targetApi="lollipop">-0.01</item>
-
         <item name="android:textColor">@color/partial_white</item>
-
         <item name="android:shadowColor">@color/text_shadow_color</item>
-
         <item name="android:shadowDx">0</item>
-
         <item name="android:shadowDy">6</item>
-
         <item name="android:shadowRadius">12</item>
     </style>
 
     <style name="Theme.AACourseApp.ActorNameText">
         <item name="android:textSize">@dimen/actor_text_size</item>
-
         <item name="android:fontFamily">sans-serif-black</item>
-
         <item name="android:lineSpacingExtra">4sp</item>
-
         <item name="android:textAllCaps">false</item>
-
         <item name="android:textColor">@color/actor_name_gray</item>
     </style>
 

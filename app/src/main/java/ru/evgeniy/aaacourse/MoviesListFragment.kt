@@ -5,22 +5,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 
-class FragmentMoviesDetails : Fragment() {
-    private var backButtonClickListener: BackButtonClickListener? = null
+class MoviesListFragment: Fragment() {
+    private var listener: MoviesListFragmentClickListener? = null
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_movies_list, container, false)
 
-        view?.findViewById<AppCompatButton>(R.id.backButton)
+        view?.findViewById<ConstraintLayout>(R.id.movieCard)
                 ?.setOnClickListener{
-                    backButtonClickListener?.onBackButtonPressed()
+                    listener?.onMovieCardClickListener()
                 }
 
         return view
@@ -28,13 +27,17 @@ class FragmentMoviesDetails : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if(context is BackButtonClickListener) {
-            backButtonClickListener = context
+        if(context is MoviesListFragmentClickListener) {
+            listener = context
         }
     }
 
     override fun onDetach() {
         super.onDetach()
-        backButtonClickListener = null
+        listener = null
+    }
+
+    interface MoviesListFragmentClickListener {
+        fun onMovieCardClickListener()
     }
 }

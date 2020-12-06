@@ -1,15 +1,28 @@
 package ru.evgeniy.aaacourse
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import org.w3c.dom.Text
 
 class MoviesDetailsFragment : Fragment() {
+    private var banner: ImageView? = null
+    private var pg: TextView? = null
+    private var title: TextView? = null
+    private var tags: TextView? = null
+    private var rating: RatingBar? = null
+    private var reviews: TextView? = null
+    private var description: TextView? = null
     private var backButtonClickListener: BackButtonClickListener? = null
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -22,8 +35,26 @@ class MoviesDetailsFragment : Fragment() {
                 ?.setOnClickListener{
                     backButtonClickListener?.onBackButtonPressed()
                 }
+        banner = view?.findViewById(R.id.movieBanner)
+        pg = view?.findViewById(R.id.pg)
+        title = view?.findViewById(R.id.movieName)
+        tags = view?.findViewById(R.id.movieTags)
+        rating = view?.findViewById(R.id.movieRating)
+        reviews = view?.findViewById(R.id.movieReviews)
+        description = view?.findViewById(R.id.storylineText)
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val movie = arguments?.getParcelable<Movie>(MOVIE)
+        banner?.setImageDrawable(ResourcesCompat.getDrawable(requireContext().getResources(), movie!!.banner, null))
+        pg?.text = movie?.pg
+        title?.text = movie?.title
+        tags?.text = movie?.genre
+        rating?.rating = movie?.rating ?: 0f
+        reviews?.text = view.context.getString(R.string.reviews, movie?.reviews.toString())
+        description?.text = movie?.description
     }
 
     override fun onAttach(context: Context) {
@@ -39,8 +70,11 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): MoviesDetailsFragment {
+        private const val MOVIE = "movie"
+
+        fun newInstance(movie: Movie): MoviesDetailsFragment {
             val args = Bundle()
+            args.putParcelable(MOVIE, movie)
 
             val fragment = MoviesDetailsFragment()
             fragment.arguments = args

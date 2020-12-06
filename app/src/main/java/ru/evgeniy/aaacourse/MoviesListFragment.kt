@@ -1,12 +1,15 @@
 package ru.evgeniy.aaacourse
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,9 +27,14 @@ class MoviesListFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val recycler = view?.findViewById<RecyclerView>(R.id.movieListRecycler)
-        recycler?.layoutManager = GridLayoutManager(activity, 2)
-        recycler?.adapter = MovieListAdapter()
+        recycler = view?.findViewById<RecyclerView>(R.id.movieListRecycler)
+        recycler?.adapter = MovieListAdapter(listener)
+        recycler?.layoutManager = GridLayoutManager(context, 2)
+
+        val verticalDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        val drawable = ResourcesCompat.getDrawable(requireContext().getResources(), R.drawable.movie_divider_vertical, null)
+        verticalDecoration.setDrawable(drawable!!)
+        recycler?.addItemDecoration(verticalDecoration)
     }
 
     override fun onAttach(context: Context) {
@@ -54,6 +62,6 @@ class MoviesListFragment: Fragment() {
     }
 
     interface MoviesListFragmentClickListener {
-        fun onMovieCardClickListener()
+        fun onMovieCardClickListener(movie: Movie)
     }
 }

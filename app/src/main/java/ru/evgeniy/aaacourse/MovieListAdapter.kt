@@ -7,9 +7,10 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class MovieListAdapter(): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickListener?): RecyclerView.Adapter<MovieViewHolder>() {
     private var movies = listOf<Movie>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -18,12 +19,16 @@ class MovieListAdapter(): RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.onBind(movies[position])
+        holder.itemView.setOnClickListener{
+            listener?.onMovieCardClickListener(movies[position])
+        }
     }
 
     override fun getItemCount(): Int = movies.size
 
     fun bindMovies(newMovie: List<Movie>) {
         movies = newMovie
+        notifyDataSetChanged()
     }
 }
 
@@ -39,17 +44,17 @@ class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
 
     fun onBind(movie: Movie) {
-        image?.setImageDrawable(movie.image)
+        image?.setImageDrawable(ResourcesCompat.getDrawable(itemView.getResources(), movie.image, null))
 
         name?.text = movie.name
 
         genre?.text = movie.genre
 
-        time?.text = "${movie.time} MIN"
+        time?.text = itemView.context.getString(R.string.minutes, movie.time)
 
         rating?.rating = movie.rating
 
-        reviews?.text = "${movie.reviews} Reviews"
+        reviews?.text = itemView.context.getString(R.string.reviews, movie.reviews.toString())
 
         pg?.text = movie.pg
 

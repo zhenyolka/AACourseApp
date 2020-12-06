@@ -37,4 +37,14 @@ class MoviesDetailsFragment : Fragment() {
         super.onDetach()
         backButtonClickListener = null
     }
+
+    companion object {
+        fun newInstance(): MoviesDetailsFragment {
+            val args = Bundle()
+
+            val fragment = MoviesDetailsFragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }

@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), MoviesListFragment.MoviesListFragmentC
 
     override fun onMovieCardClickListener() {
         if (moviesDetailsFragment == null)
-            moviesDetailsFragment = MoviesDetailsFragment()
+            moviesDetailsFragment = MoviesDetailsFragment.newInstance()
         supportFragmentManager
                 .beginTransaction()
                 .addToBackStack(null)

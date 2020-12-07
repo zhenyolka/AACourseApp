@@ -17,7 +17,12 @@ class DataSource {
                 R.drawable.movie1_banner,
                 "Avengers:\nEnd Game",
                 "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
-                null),
+                listOf(
+                        Actor("Robert Downey Jr.", R.drawable.actor1),
+                        Actor("Chris\nEvans", R.drawable.actor2),
+                        Actor("Mark\nRuffalo", R.drawable.actor3),
+                        Actor("Chris\nHemsworth", R.drawable.actor4)
+                )),
             Movie(R.drawable.movie2,
                 "Tenet",
                 "Action, Sci-Fi, Thriller",

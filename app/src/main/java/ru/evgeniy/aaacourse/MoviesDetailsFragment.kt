@@ -13,6 +13,9 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_movies_details.*
 import org.w3c.dom.Text
 
 class MoviesDetailsFragment : Fragment() {
@@ -24,6 +27,9 @@ class MoviesDetailsFragment : Fragment() {
     private var reviews: TextView? = null
     private var description: TextView? = null
     private var backButtonClickListener: BackButtonClickListener? = null
+    private var recycler: RecyclerView? = null
+
+    private var movie: Movie? = null
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -42,12 +48,13 @@ class MoviesDetailsFragment : Fragment() {
         rating = view?.findViewById(R.id.movieRating)
         reviews = view?.findViewById(R.id.movieReviews)
         description = view?.findViewById(R.id.storylineText)
+        recycler = view?.findViewById(R.id.actorsRecycler)
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val movie = arguments?.getParcelable<Movie>(MOVIE)
+        movie = arguments?.getParcelable<Movie>(MOVIE)
         banner?.setImageDrawable(ResourcesCompat.getDrawable(requireContext().getResources(), movie!!.banner, null))
         pg?.text = movie?.pg
         title?.text = movie?.title
@@ -55,6 +62,9 @@ class MoviesDetailsFragment : Fragment() {
         rating?.rating = movie?.rating ?: 0f
         reviews?.text = view.context.getString(R.string.reviews, movie?.reviews.toString())
         description?.text = movie?.description
+
+        actorsRecycler?.adapter = ActorAdapter()
+        actorsRecycler?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
     override fun onAttach(context: Context) {
@@ -67,6 +77,18 @@ class MoviesDetailsFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         backButtonClickListener = null
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        updateData()
+    }
+
+    fun updateData() {
+        (recycler?.adapter as ActorAdapter).apply {
+            movie?.let { bindActors(it.actors) }
+        }
     }
 
     companion object {

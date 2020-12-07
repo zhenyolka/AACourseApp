@@ -5,4 +5,5 @@
     <string name="cast">Cast</string>
     <string name="minutes">%1$d MIN</string>
     <string name="reviews">%1$s Reviews</string>
+    <string name="no_actors">There is no actors in this movie</string>
 </resources>

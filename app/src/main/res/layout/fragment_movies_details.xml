@@ -161,94 +161,15 @@
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/storylineText" />
 
-        <!--TODO: replace with RecyclerView -->
-
-        <ImageView
-            android:id="@+id/actor1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actorsRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor1"
-            app:layout_constraintEnd_toStartOf="@+id/actor2"
+            android:paddingBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/castName"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Robert Downey Jr."
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor1"
-            app:layout_constraintStart_toStartOf="@id/actor1"
-            app:layout_constraintTop_toBottomOf="@id/actor1" />
-
-        <ImageView
-            android:id="@+id/actor2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor2"
-            app:layout_constraintEnd_toStartOf="@+id/actor3"
-            app:layout_constraintStart_toEndOf="@+id/actor1"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Chris\nEvans"
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor2"
-            app:layout_constraintStart_toStartOf="@id/actor2"
-            app:layout_constraintTop_toBottomOf="@id/actor2" />
-
-        <ImageView
-            android:id="@+id/actor3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor3"
-            app:layout_constraintEnd_toStartOf="@+id/actor4"
-            app:layout_constraintStart_toEndOf="@+id/actor2"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Mark\nRuffalo"
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor3"
-            app:layout_constraintStart_toStartOf="@id/actor3"
-            app:layout_constraintTop_toBottomOf="@id/actor3" />
-
-        <ImageView
-            android:id="@+id/actor4"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor4"
-            app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            app:layout_constraintStart_toEndOf="@+id/actor3"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Chris\nHemsworth"
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor4"
-            app:layout_constraintStart_toStartOf="@id/actor4"
-            app:layout_constraintTop_toBottomOf="@id/actor4" />
+            app:layout_constraintEnd_toEndOf="@id/endGuideline" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

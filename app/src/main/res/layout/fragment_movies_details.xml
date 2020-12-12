@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_banner_avengers"
+            tools:srcCompat="@drawable/movie1_banner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@android:color/transparent"
-            android:text="13+"
+            tools:text="13+"
             android:textAppearance="@style/Theme.AACourseApp.PGText"
             app:layout_constraintBottom_toTopOf="@id/movieName"
             app:layout_constraintStart_toStartOf="@id/startGuideline" />
@@ -88,7 +88,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:text="Avengers:\nEnd Game"
+            tools:text="Avengers:\nEnd Game"
             android:textAppearance="@style/Theme.AACourseApp.MovieNameText"
             app:layout_constraintBottom_toBottomOf="@id/movieBanner"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="start"
-            android:text="Action, Adventure, Fantasy"
+            tools:text="Action, Adventure, Fantasy"
             android:textAppearance="@style/Theme.AACourseApp.TagsText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -115,7 +115,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/movieTags"
-            android:rating="4" />
+            tools:rating="4" />
 
         <TextView
             android:id="@+id/movieReviews"
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="125 Reviews"
+            tools:text="125 Reviews"
             android:textAppearance="@style/Theme.AACourseApp.ReviewsText"
             app:layout_constraintStart_toEndOf="@id/movieRating"
             app:layout_constraintTop_toBottomOf="@id/movieTags" />
@@ -133,7 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Storyline"
+            android:text="@string/storyline"
             android:textAppearance="@style/Theme.AACourseApp.StorylineNameText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -144,7 +144,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
+            tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
             android:textAppearance="@style/Theme.AACourseApp.StorylineTextText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
@@ -155,100 +155,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Cast"
+            android:text="@string/cast"
             android:textAppearance="@style/Theme.AACourseApp.CastNameText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/storylineText" />
 
-        <!--TODO: replace with RecyclerView -->
-
-        <ImageView
-            android:id="@+id/actor1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actorsRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor1"
-            app:layout_constraintEnd_toStartOf="@+id/actor2"
+            android:paddingBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/castName"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Robert Downey Jr."
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor1"
-            app:layout_constraintStart_toStartOf="@id/actor1"
-            app:layout_constraintTop_toBottomOf="@id/actor1" />
-
-        <ImageView
-            android:id="@+id/actor2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor2"
-            app:layout_constraintEnd_toStartOf="@+id/actor3"
-            app:layout_constraintStart_toEndOf="@+id/actor1"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Chris\nEvans"
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor2"
-            app:layout_constraintStart_toStartOf="@id/actor2"
-            app:layout_constraintTop_toBottomOf="@id/actor2" />
-
-        <ImageView
-            android:id="@+id/actor3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor3"
-            app:layout_constraintEnd_toStartOf="@+id/actor4"
-            app:layout_constraintStart_toEndOf="@+id/actor2"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Mark\nRuffalo"
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor3"
-            app:layout_constraintStart_toStartOf="@id/actor3"
-            app:layout_constraintTop_toBottomOf="@id/actor3" />
-
-        <ImageView
-            android:id="@+id/actor4"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/actor4"
-            app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            app:layout_constraintStart_toEndOf="@+id/actor3"
-            app:layout_constraintTop_toBottomOf="@id/castName" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Chris\nHemsworth"
-            android:textAppearance="@style/Theme.AACourseApp.ActorNameText"
-            app:layout_constraintEnd_toEndOf="@id/actor4"
-            app:layout_constraintStart_toStartOf="@id/actor4"
-            app:layout_constraintTop_toBottomOf="@id/actor4" />
+            app:layout_constraintEnd_toEndOf="@id/endGuideline" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">AA Course App</string>
     <string name="button_back">Back</string>
+    <string name="storyline">Storyline</string>
+    <string name="cast">Cast</string>
+    <string name="minutes">%1$d MIN</string>
+    <string name="reviews">%1$s Reviews</string>
+    <string name="no_actors">There is no actors in this movie</string>
 </resources>

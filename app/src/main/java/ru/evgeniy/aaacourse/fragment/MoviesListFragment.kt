@@ -1,25 +1,28 @@
-package ru.evgeniy.aaacourse
+package ru.evgeniy.aaacourse.fragment
 
 import android.content.Context
-import android.content.res.Configuration
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
-import java.lang.Integer.getInteger
+import androidx.transition.TransitionInflater
+import ru.evgeniy.aaacourse.MovieListAdapter
+import ru.evgeniy.aaacourse.R
+import ru.evgeniy.aaacourse.util.DataSource
+import ru.evgeniy.aaacourse.data.Movie
 
 class MoviesListFragment: Fragment() {
     private var listener: MoviesListFragmentClickListener? = null
     private var recycler: RecyclerView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+    }
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -34,10 +37,7 @@ class MoviesListFragment: Fragment() {
         recycler = view.findViewById(R.id.movieListRecycler)
         recycler?.adapter = MovieListAdapter(listener)
         recycler?.layoutManager = GridLayoutManager(context,
-                if (requireContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-                    requireContext().resources.getInteger(R.integer.movie_list_grid_count_portrait)
-                else
-                    requireContext().resources.getInteger(R.integer.movie_list_grid_count_landscape)
+                    requireContext().resources.getInteger(R.integer.movie_list_grid_count)
         )
     }
 
@@ -61,7 +61,7 @@ class MoviesListFragment: Fragment() {
 
     private fun updateData() {
         (recycler?.adapter as? MovieListAdapter)?.apply {
-            bindMovies(DataSource.getMovies(context))
+            bindMovies(DataSource.getMovies())
         }
     }
 

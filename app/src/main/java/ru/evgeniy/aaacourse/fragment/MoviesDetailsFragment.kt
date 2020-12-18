@@ -1,35 +1,43 @@
-package ru.evgeniy.aaacourse
+package ru.evgeniy.aaacourse.fragment
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.TransitionInflater
 import kotlinx.android.synthetic.main.fragment_movies_details.*
-import org.w3c.dom.Text
+import ru.evgeniy.aaacourse.ActorAdapter
+import ru.evgeniy.aaacourse.BackButtonClickListener
+import ru.evgeniy.aaacourse.R
+import ru.evgeniy.aaacourse.custom.RatingBarSvg
+import ru.evgeniy.aaacourse.data.Movie
 
 class MoviesDetailsFragment : Fragment() {
     private var banner: ImageView? = null
     private var pg: TextView? = null
     private var title: TextView? = null
     private var tags: TextView? = null
-    private var rating: RatingBar? = null
+    private var rating: RatingBarSvg? = null
     private var reviews: TextView? = null
     private var description: TextView? = null
     private var backButtonClickListener: BackButtonClickListener? = null
     private var recycler: RecyclerView? = null
 
     private var movie: Movie? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+    }
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,

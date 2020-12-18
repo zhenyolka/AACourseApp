@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_gray"
-    tools:context=".MoviesListFragment"
+    tools:context=".fragment.MoviesListFragment"
     xmlns:android="http://schemas.android.com/apk/res/android">
         <ImageView
             android:id="@+id/combinedShape"

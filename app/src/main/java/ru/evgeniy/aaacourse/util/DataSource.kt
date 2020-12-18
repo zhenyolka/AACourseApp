@@ -1,12 +1,14 @@
-package ru.evgeniy.aaacourse
+package ru.evgeniy.aaacourse.util
 
-import android.content.Context
-import androidx.core.content.res.ResourcesCompat
+import ru.evgeniy.aaacourse.R
+import ru.evgeniy.aaacourse.data.Actor
+import ru.evgeniy.aaacourse.data.Movie
 
 class DataSource {
     companion object {
-        fun getMovies(context: Context?): List<Movie> = listOf(
-            Movie(R.drawable.movie1,
+        fun getMovies(): List<Movie> = listOf(
+            Movie(
+                R.drawable.movie1,
                 "Avengers: End Game",
                 "Action, Adventure, Fantasy",
                 137,
@@ -23,7 +25,8 @@ class DataSource {
                         Actor("Mark\nRuffalo", R.drawable.actor3),
                         Actor("Chris\nHemsworth", R.drawable.actor4)
                 )),
-            Movie(R.drawable.movie2,
+            Movie(
+                R.drawable.movie2,
                 "Tenet",
                 "Action, Sci-Fi, Thriller",
                 97,
@@ -34,7 +37,8 @@ class DataSource {
                 "Tenet",
                 "Example",
                 null),
-            Movie(R.drawable.movie3,
+            Movie(
+                R.drawable.movie3,
                 "Black Widow",
                 "Action, Adventure, Sci-Fi",
                 102,
@@ -45,7 +49,8 @@ class DataSource {
                 "Black Widow",
                 "Example",
                 null),
-            Movie(R.drawable.movie4,
+            Movie(
+                R.drawable.movie4,
                 "Wonder Woman 1984",
                 "Action, Adventure, Fantasy",
                 120,

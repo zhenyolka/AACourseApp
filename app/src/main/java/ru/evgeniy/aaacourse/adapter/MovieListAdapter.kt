@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
+import ru.evgeniy.aaacourse.custom.RatingBarSvg
+import ru.evgeniy.aaacourse.data.Movie
+import ru.evgeniy.aaacourse.fragment.MoviesListFragment
 
 class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickListener?): RecyclerView.Adapter<MovieViewHolder>() {
     private var movies = listOf<Movie>()
@@ -37,7 +39,7 @@ class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val name: TextView? = itemView.findViewById(R.id.movieNameMain)
     private val genre: TextView? = itemView.findViewById(R.id.movieTagsMain)
     private val time: TextView? = itemView.findViewById(R.id.movieMinutesText)
-    private val rating: RatingBar? = itemView.findViewById(R.id.movieRatingMain)
+    private val rating: RatingBarSvg? = itemView.findViewById(R.id.movieRatingMain)
     private val reviews: TextView? = itemView.findViewById(R.id.movieReviewsMain)
     private val pg: TextView? = itemView.findViewById(R.id.pgMain)
     private val like: AppCompatImageButton? = itemView.findViewById(R.id.likeButton)
@@ -59,8 +61,8 @@ class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         pg?.text = movie.pg
 
         like?.setImageResource(if (movie.isLiked)
-            R.drawable.ic_icon_like_activated
+            R.drawable.ic_like_enabled
         else
-                R.drawable.ic_icon_like_normal)
+                R.drawable.ic_like_disabled)
     }
 }

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="movie_list_grid_count">2</integer>
+    <integer name="movie_list_grid_count">4</integer>
 </resources>

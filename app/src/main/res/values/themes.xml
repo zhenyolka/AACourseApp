@@ -58,9 +58,11 @@
     <style name="Theme.AACourseApp.MovieRatingBarMain" parent="@android:style/Widget.RatingBar">
         <item name="android:numStars">5</item>
         <item name="android:stepSize">1</item>
-        <item name="android:progressDrawable">@drawable/ratingbar_red_main</item>
-        <item name="android:minHeight">@dimen/movie_bar_main_height</item>
-        <item name="android:maxHeight">@dimen/movie_bar_main_height</item>
+        <item name="drawableHeight">8dp</item>
+        <item name="drawableWidth">8dp</item>
+        <item name="innerPadding">2dp</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_selector</item>
+
     </style>
 
     <style name="Theme.AACourseApp.MovieNameText">
@@ -155,8 +157,9 @@
     <style name="Theme.AACourseApp.MovieRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:numStars">5</item>
         <item name="android:stepSize">1</item>
-        <item name="android:progressDrawable">@drawable/ratingbar_red</item>
-        <item name="android:minHeight">@dimen/movie_bar_height</item>
-        <item name="android:maxHeight">@dimen/movie_bar_height</item>
+        <item name="drawableHeight">12dp</item>
+        <item name="drawableWidth">12dp</item>
+        <item name="innerPadding">3dp</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_selector</item>
     </style>
 </resources>

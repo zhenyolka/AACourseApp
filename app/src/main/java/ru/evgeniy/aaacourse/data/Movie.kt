@@ -1,4 +1,4 @@
-package ru.evgeniy.aaacourse
+package ru.evgeniy.aaacourse.data
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

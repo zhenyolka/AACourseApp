@@ -2,6 +2,9 @@ package ru.evgeniy.aaacourse
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.evgeniy.aaacourse.data.Movie
+import ru.evgeniy.aaacourse.fragment.MoviesDetailsFragment
+import ru.evgeniy.aaacourse.fragment.MoviesListFragment
 
 class MainActivity : AppCompatActivity(), MoviesListFragment.MoviesListFragmentClickListener, BackButtonClickListener {
 

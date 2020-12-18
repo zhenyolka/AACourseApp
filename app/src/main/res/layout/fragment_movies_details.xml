@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MoviesDetailsFragment">
+        tools:context=".fragment.MoviesDetailsFragment">
 
         <ImageView
             android:id="@+id/movieBanner"
@@ -107,7 +107,7 @@
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/movieName" />
 
-        <RatingBar
+        <ru.evgeniy.aaacourse.custom.RatingBarSvg
             android:id="@+id/movieRating"
             style="@style/Theme.AACourseApp.MovieRatingBar"
             android:layout_width="wrap_content"

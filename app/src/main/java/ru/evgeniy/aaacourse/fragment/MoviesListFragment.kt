@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionInflater
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import ru.evgeniy.aaacourse.MovieListAdapter
 import ru.evgeniy.aaacourse.R
-import ru.evgeniy.aaacourse.util.DataSource
 import ru.evgeniy.aaacourse.data.Movie
+import ru.evgeniy.aaacourse.data.loadMovies
 
 class MoviesListFragment: Fragment() {
     private var listener: MoviesListFragmentClickListener? = null
@@ -56,12 +59,17 @@ class MoviesListFragment: Fragment() {
     override fun onStart() {
         super.onStart()
 
-        updateData()
+        var movies: List<Movie>
+
+        CoroutineScope(Dispatchers.Main).launch {
+            movies = loadMovies(requireContext())
+            updateData(movies)
+        }
     }
 
-    private fun updateData() {
+    private fun updateData(movies: List<Movie>) {
         (recycler?.adapter as? MovieListAdapter)?.apply {
-            bindMovies(DataSource.getMovies())
+            bindMovies(movies)
         }
     }
 

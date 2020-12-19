@@ -18,12 +18,18 @@
 
     <ImageView
         android:id="@+id/movieImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="@id/movieBackground"
         app:layout_constraintTop_toTopOf="@id/movieBackground"
         app:layout_constraintEnd_toEndOf="@id/movieBackground"
-        tools:src="@tools:sample/avatars"/>
+        app:layout_constraintBottom_toTopOf="@id/movieNameMain"
+        tools:src="@drawable/ic_no_image"/>
 
     <ImageView
         android:id="@+id/movieImageGradient"
@@ -58,7 +64,7 @@
         android:layout_marginStart="8dp"
         app:layout_constraintTop_toTopOf="@id/movieImage"
         app:layout_constraintStart_toStartOf="@id/movieImage"
-        tools:text="13+"/>
+        tools:text="18+"/>
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/likeButton"
@@ -81,7 +87,7 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintStart_toStartOf="@id/movieBackground"
         app:layout_constraintBottom_toTopOf="@id/movieRatingMain"
-        tools:text="Thriller"/>
+        tools:text="Drama, Fantasy, Detective"/>
 
     <ru.evgeniy.aaacourse.custom.RatingBarSvg
         android:id="@+id/movieRatingMain"

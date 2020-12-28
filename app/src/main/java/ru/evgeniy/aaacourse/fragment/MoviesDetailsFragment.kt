@@ -21,6 +21,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.fragment_movies_details.*
 import ru.evgeniy.aaacourse.ActorAdapter
 import ru.evgeniy.aaacourse.BackButtonClickListener
+import ru.evgeniy.aaacourse.MainActivity
 import ru.evgeniy.aaacourse.R
 import ru.evgeniy.aaacourse.custom.RatingBarSvg
 import ru.evgeniy.aaacourse.data.Movie
@@ -69,21 +70,24 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        movie = arguments?.getParcelable(MOVIE)
-        banner?.apply { Glide.with(requireContext())
+        arguments?.apply {
+            val movieId = getLong(MOVIE_ID)
+            movie = (activity as MainActivity).viewModel.getMovie(movieId)
+            banner?.apply { Glide.with(requireContext())
                 .load(movie?.backdrop)
                 .error(R.drawable.ic_no_image)
                 .fallback(R.drawable.ic_no_image)
                 .fitCenter()
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(this) }
-        pg?.text = context?.getString(R.string.pg, movie?.minimumAge)
-        title?.text = movie?.title
-        tags?.text = movie?.genres?.joinToString(separator = ", ", transform = {it.name})
-        rating?.rating = movie?.ratings?.apply { div(2) } ?: 0f
-        reviews?.text = view.context.getString(R.string.reviews, movie?.numberOfRatings)
-        description?.text = movie?.overview
-        cast?.visibility = if (movie?.actors?.isEmpty() ?: false) View.GONE else View.VISIBLE
+            pg?.text = context?.getString(R.string.pg, movie?.minimumAge)
+            title?.text = movie?.title
+            tags?.text = movie?.genres?.joinToString(separator = ", ", transform = {it.name})
+            rating?.rating = movie?.ratings?.apply { div(2) } ?: 0f
+            reviews?.text = view.context.getString(R.string.reviews, movie?.numberOfRatings)
+            description?.text = movie?.overview
+            cast?.visibility = if (movie?.actors?.isEmpty() ?: false) View.GONE else View.VISIBLE
+        }
 
         actorsRecycler?.adapter = ActorAdapter()
         actorsRecycler?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -114,11 +118,11 @@ class MoviesDetailsFragment : Fragment() {
     }
 
     companion object {
-        private const val MOVIE = "movie"
+        private const val MOVIE_ID = "movie"
 
-        fun newInstance(movie: Movie): MoviesDetailsFragment {
+        fun newInstance(movieId: Long): MoviesDetailsFragment {
             val args = Bundle()
-            args.putParcelable(MOVIE, movie)
+            args.putLong(MOVIE_ID, movieId)
 
             val fragment = MoviesDetailsFragment()
             fragment.arguments = args

@@ -19,7 +19,8 @@ import ru.evgeniy.aaacourse.data.Movie
 import ru.evgeniy.aaacourse.fragment.MoviesListFragment
 import kotlin.math.roundToInt
 
-class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickListener?): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickListener?):
+    RecyclerView.Adapter<MovieViewHolder>() {
     private var movies = listOf<Movie>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -29,15 +30,17 @@ class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickL
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.onBind(movies[position])
         holder.itemView.setOnClickListener{
-            listener?.onMovieCardClickListener(movies[position])
+            listener?.onMovieCardClickListener(movies[position].id)
         }
     }
 
     override fun getItemCount(): Int = movies.size
 
-    fun bindMovies(newMovie: List<Movie>) {
-        movies = newMovie
-        notifyDataSetChanged()
+    fun bindMovies(newMovie: List<Movie>?) {
+        newMovie?.let {
+            movies = newMovie
+            notifyDataSetChanged()
+        }
     }
 }
 

@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionInflater
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import ru.evgeniy.aaacourse.MainActivity
 import ru.evgeniy.aaacourse.MovieListAdapter
 import ru.evgeniy.aaacourse.R
 import ru.evgeniy.aaacourse.data.Movie
-import ru.evgeniy.aaacourse.data.loadMovies
 
-class MoviesListFragment: Fragment() {
+class MoviesListFragment: Fragment(),
+    Observer<Map<Long, Movie>> {
     private var listener: MoviesListFragmentClickListener? = null
     private var recycler: RecyclerView? = null
 
@@ -59,12 +58,9 @@ class MoviesListFragment: Fragment() {
     override fun onStart() {
         super.onStart()
 
-        var movies: List<Movie>
-
-        CoroutineScope(Dispatchers.Main).launch {
-            movies = loadMovies(requireContext())
-            updateData(movies)
-        }
+        (activity as MainActivity).viewModel
+            .moviesList
+            .observe(this.viewLifecycleOwner, this)
     }
 
     private fun updateData(movies: List<Movie>) {
@@ -73,7 +69,21 @@ class MoviesListFragment: Fragment() {
         }
     }
 
+    companion object {
+        fun newInstance(): MoviesListFragment {
+            val fragment = MoviesListFragment()
+            return fragment
+        }
+    }
+
     interface MoviesListFragmentClickListener {
-        fun onMovieCardClickListener(movie: Movie)
+        fun onMovieCardClickListener(movieId: Long)
+    }
+
+    override fun onChanged(t: Map<Long, Movie>?) {
+        (recycler
+            ?.adapter as MovieListAdapter)
+            .bindMovies((activity as MainActivity)
+                .viewModel.moviesList.value?.values?.toList())
     }
 }

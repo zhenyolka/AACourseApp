@@ -8,11 +8,19 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.CenterInside
+import com.bumptech.glide.load.resource.bitmap.FitCenter
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import ru.evgeniy.aaacourse.custom.RatingBarSvg
 import ru.evgeniy.aaacourse.data.Movie
 import ru.evgeniy.aaacourse.fragment.MoviesListFragment
+import kotlin.math.roundToInt
 
-class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickListener?): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickListener?):
+    RecyclerView.Adapter<MovieViewHolder>() {
     private var movies = listOf<Movie>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -22,45 +30,53 @@ class MovieListAdapter(val listener: MoviesListFragment.MoviesListFragmentClickL
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.onBind(movies[position])
         holder.itemView.setOnClickListener{
-            listener?.onMovieCardClickListener(movies[position])
+            listener?.onMovieCardClickListener(movies[position].id)
         }
     }
 
     override fun getItemCount(): Int = movies.size
 
-    fun bindMovies(newMovie: List<Movie>) {
-        movies = newMovie
-        notifyDataSetChanged()
+    fun bindMovies(newMovie: List<Movie>?) {
+        newMovie?.let {
+            movies = newMovie
+            notifyDataSetChanged()
+        }
     }
 }
 
 class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    private val image: ImageView? = itemView.findViewById(R.id.movieImage)
-    private val name: TextView? = itemView.findViewById(R.id.movieNameMain)
-    private val genre: TextView? = itemView.findViewById(R.id.movieTagsMain)
-    private val time: TextView? = itemView.findViewById(R.id.movieMinutesText)
-    private val rating: RatingBarSvg? = itemView.findViewById(R.id.movieRatingMain)
-    private val reviews: TextView? = itemView.findViewById(R.id.movieReviewsMain)
-    private val pg: TextView? = itemView.findViewById(R.id.pgMain)
-    private val like: AppCompatImageButton? = itemView.findViewById(R.id.likeButton)
+    private val image: ImageView = itemView.findViewById(R.id.movieImage)
+    private val name: TextView = itemView.findViewById(R.id.movieNameMain)
+    private val genre: TextView = itemView.findViewById(R.id.movieTagsMain)
+    private val time: TextView = itemView.findViewById(R.id.movieMinutesText)
+    private val rating: RatingBarSvg = itemView.findViewById(R.id.movieRatingMain)
+    private val reviews: TextView = itemView.findViewById(R.id.movieReviewsMain)
+    private val pg: TextView = itemView.findViewById(R.id.pgMain)
+    private val like: AppCompatImageButton = itemView.findViewById(R.id.likeButton)
 
 
     fun onBind(movie: Movie) {
-        image?.setImageDrawable(ResourcesCompat.getDrawable(itemView.getResources(), movie.image, null))
+        Glide.with(image.context)
+                .load(movie.poster)
+                .error(R.drawable.ic_no_image)
+                .fallback(R.drawable.ic_no_image)
+                .transform(CenterCrop(), RoundedCorners(16))
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(image)
 
-        name?.text = movie.name
+        name.text = movie.title
 
-        genre?.text = movie.genre
+        genre.text = movie.genres.joinToString (separator = ", ", transform = { it.name })
 
-        time?.text = itemView.context.getString(R.string.minutes, movie.time)
+        time.text = itemView.context.getString(R.string.minutes, movie.runtime)
 
-        rating?.rating = movie.rating
+        rating.rating = movie.ratings / 2
 
-        reviews?.text = itemView.context.getString(R.string.reviews, movie.reviews.toString())
+        reviews.text = itemView.context.getString(R.string.reviews, movie.numberOfRatings)
 
-        pg?.text = movie.pg
+        pg.text = itemView.context.getString(R.string.pg, movie.minimumAge)
 
-        like?.setImageResource(if (movie.isLiked)
+        like.setImageResource(if (movie.isLiked)
             R.drawable.ic_like_enabled
         else
                 R.drawable.ic_like_disabled)

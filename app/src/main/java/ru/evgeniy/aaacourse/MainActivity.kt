@@ -2,38 +2,36 @@ package ru.evgeniy.aaacourse
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import ru.evgeniy.aaacourse.data.Movie
 import ru.evgeniy.aaacourse.fragment.MoviesDetailsFragment
 import ru.evgeniy.aaacourse.fragment.MoviesListFragment
+import ru.evgeniy.aaacourse.util.APP_ACTIVITY
 
 class MainActivity : AppCompatActivity(), MoviesListFragment.MoviesListFragmentClickListener, BackButtonClickListener {
 
-    private var moviesListFragment: MoviesListFragment? = null
-    private var moviesDetailsFragment: MoviesDetailsFragment? = null
+    lateinit var viewModel: MoviesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(savedInstanceState == null) {
+        APP_ACTIVITY = this
+
+        viewModel = ViewModelProvider(APP_ACTIVITY).get(MoviesViewModel::class.java)
+
+        if(savedInstanceState == null)
             supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.mainContainer, MoviesListFragment(), MOVIES_LIST_FRAGMENT_TAG)
+                    .add(R.id.mainContainer, MoviesListFragment.newInstance(), MOVIES_LIST_FRAGMENT_TAG)
                     .commit()
-        } else {
-            moviesListFragment = supportFragmentManager
-                    .findFragmentByTag(MOVIES_LIST_FRAGMENT_TAG) as? MoviesListFragment
-            moviesDetailsFragment = supportFragmentManager
-                    .findFragmentByTag(MOVIES_DETAILS_FRAGMENT_TAG) as? MoviesDetailsFragment
-        }
     }
 
-    override fun onMovieCardClickListener(movie: Movie) {
-        moviesDetailsFragment = MoviesDetailsFragment.newInstance(movie)
+    override fun onMovieCardClickListener(movieId: Long) {
         supportFragmentManager
                 .beginTransaction()
                 .addToBackStack(null)
-                .replace(R.id.mainContainer, moviesDetailsFragment!!, MOVIES_DETAILS_FRAGMENT_TAG)
+                .replace(R.id.mainContainer, MoviesDetailsFragment.newInstance(movieId), MOVIES_DETAILS_FRAGMENT_TAG)
                 .commit()
     }
 

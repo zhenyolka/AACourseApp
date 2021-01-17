@@ -118,24 +118,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start"
+        android:layout_margin="8dp"
         android:textAppearance="@style/Theme.AACourseApp.MovieNameTextMain"
-        app:layout_constraintStart_toStartOf="@id/movieMinutesText"
-        app:layout_constraintEnd_toEndOf="@id/movieMinutesText"
-        app:layout_constraintBottom_toTopOf="@id/movieMinutesText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="Green Mile"/>
-
-    <TextView
-        android:id="@+id/movieMinutesText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|start"
-        android:textAppearance="@style/Theme.AACourseApp.MovieMinutesText"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintStart_toStartOf="@id/movieBackground"
-        app:layout_constraintEnd_toEndOf="@id/movieBackground"
-        app:layout_constraintBottom_toBottomOf="@id/movieBackground"
-        tools:text="189 MIN"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

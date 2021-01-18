@@ -89,8 +89,8 @@ class MoviesViewModel: ViewModel() {
                 Actor(
                     it.id,
                     it.name,
-                    _config.value!!.images.secureBaseUrl
-                            + _config.value!!.images.profileSizes[2] + it.profilePath
+                    it.profilePath?.let {
+                        _config.value?.images?.secureBaseUrl + _config.value?.images?.profileSizes?.get(2) + it }
                 )
             })
         }

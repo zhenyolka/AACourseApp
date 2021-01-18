@@ -13,6 +13,7 @@ import ru.evgeniy.aaacourse.api.api.ConfigApi
 import ru.evgeniy.aaacourse.api.api.GenresApi
 import ru.evgeniy.aaacourse.api.api.MoviesApi
 import ru.evgeniy.aaacourse.interceptor.ApiKeyInterceptor
+import ru.evgeniy.aaacourse.interceptor.LanguageInterceptor
 import ru.evgeniy.aaacourse.util.BASE_API_URL
 
 object NetworkModule {
@@ -21,11 +22,13 @@ object NetworkModule {
     }
 
     private fun buildOkHttpClient(): OkHttpClient {
-        val client = OkHttpClient().newBuilder().addInterceptor(
-            ApiKeyInterceptor()
-        )
-        if (BuildConfig.DEBUG)
-            client.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        val client = OkHttpClient().newBuilder().apply {
+            addInterceptor(ApiKeyInterceptor())
+            addInterceptor(LanguageInterceptor())
+            if (BuildConfig.DEBUG)
+                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        }
+
         return client.build()
     }
 

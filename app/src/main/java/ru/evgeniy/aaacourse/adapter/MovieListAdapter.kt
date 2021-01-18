@@ -48,7 +48,6 @@ class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val image: ImageView = itemView.findViewById(R.id.movieImage)
     private val name: TextView = itemView.findViewById(R.id.movieNameMain)
     private val genre: TextView = itemView.findViewById(R.id.movieTagsMain)
-    private val time: TextView = itemView.findViewById(R.id.movieMinutesText)
     private val rating: RatingBarSvg = itemView.findViewById(R.id.movieRatingMain)
     private val reviews: TextView = itemView.findViewById(R.id.movieReviewsMain)
     private val pg: TextView = itemView.findViewById(R.id.pgMain)
@@ -68,9 +67,7 @@ class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         genre.text = movie.genres.joinToString (separator = ", ", transform = { it.name })
 
-        time.text = itemView.context.getString(R.string.minutes, movie.runtime)
-
-        rating.rating = movie.ratings / 2
+        rating.rating = (movie.ratings / 2).toFloat()
 
         reviews.text = itemView.context.getString(R.string.reviews, movie.numberOfRatings)
 

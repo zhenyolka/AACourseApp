@@ -6,7 +6,7 @@
     <dimen name="reviews_main_text_line_spacing_extra">3sp</dimen>
     <dimen name="tags_main_text_size">8sp</dimen>
     <dimen name="tags_main_text_line_spacing_extra">3sp</dimen>
-    <dimen name="movie_minutes_text_size">8sp</dimen>
+    <dimen name="movie_minutes_text_size">14sp</dimen>
     <dimen name="movie_minutes_text_line_spacing_extra">3sp</dimen>
     <dimen name="movie_name_main_text_size">14sp</dimen>
     <dimen name="movie_name_main_text_line_spacing_extra">4sp</dimen>

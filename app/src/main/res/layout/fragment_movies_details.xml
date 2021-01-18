@@ -96,6 +96,18 @@
             app:layout_constraintTop_toBottomOf="@+id/movieBanner" />
 
         <TextView
+            android:id="@+id/movieMinutesText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:textAppearance="@style/Theme.AACourseApp.MovieMinutesText"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/movieName"
+            tools:text="189 MIN"/>
+
+        <TextView
             android:id="@+id/movieTags"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -105,7 +117,7 @@
             android:textAppearance="@style/Theme.AACourseApp.TagsText"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
-            app:layout_constraintTop_toBottomOf="@id/movieName" />
+            app:layout_constraintTop_toBottomOf="@id/movieMinutesText" />
 
         <ru.evgeniy.aaacourse.custom.RatingBarSvg
             android:id="@+id/movieRating"
